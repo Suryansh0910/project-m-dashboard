@@ -1,0 +1,137 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #787486;
+  border-radius: 6px;
+  background: white;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #787486;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.filter-btn:hover {
+  border-color: #0D062D;
+  color: #0D062D;
+}
+
+.filter-btn.active {
+  border-color: #5030E5;
+  color: #5030E5;
+  background: rgba(80, 48, 229, 0.04);
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 6px 0;
+  z-index: 50;
+  min-width: 160px;
+  animation: fadeInMenu 0.15s ease;
+}
+
+.filter-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #0D062D;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.filter-dropdown-item:hover {
+  background: #F5F5F5;
+}
+
+.filter-dropdown-item.selected {
+  color: #5030E5;
+  font-weight: 600;
+}
+
+.filter-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #787486;
+  border-radius: 6px;
+  background: white;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #787486;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  border-color: #0D062D;
+  color: #0D062D;
+}
+
+.divider-pipe {
+  color: #787486;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0 4px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.view-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #787486;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-toggle-btn.active {
+  background: #5030E5;
+  color: white;
+}

@@ -1,0 +1,352 @@
+.sidebar {
+  width: var(--sidebar-width, 250px);
+  min-width: var(--sidebar-width, 250px);
+  background: #FFFFFF;
+  border-right: 1px solid #DBDBDB;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  z-index: 10;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar.collapsed {
+  width: 68px;
+  min-width: 68px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #DBDBDB;
+  min-height: 80px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-logo-img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo h1 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #0D062D;
+  white-space: nowrap;
+  letter-spacing: 0px;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.collapse-btn:hover {
+  background: #F5F5F5;
+}
+
+.sidebar.collapsed .sidebar-logo h1,
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .projects-section h3,
+.sidebar.collapsed .project-name,
+.sidebar.collapsed .project-actions,
+.sidebar.collapsed .thoughts-box-container,
+.sidebar.collapsed .collapse-btn,
+.sidebar.collapsed .add-project-btn {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 24px 10px;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 10px;
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+.sidebar.collapsed .projects-section {
+  padding: 10px;
+}
+
+.sidebar.collapsed .project-item {
+  justify-content: center;
+  padding: 8px;
+}
+
+.sidebar.collapsed .project-dot {
+  margin-right: 0;
+}
+
+/* Nav Items */
+.sidebar-nav {
+  padding: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Slight gap between items so hover states don't overlap too much */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #787486;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+  transition: all 0.2s;
+  gap: 14px;
+}
+
+.nav-item:hover {
+  color: #0D062D;
+}
+
+.nav-item.active {
+  color: #0D062D;
+  font-weight: 600;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background-color: #DBDBDB;
+  margin: 24px 13px; /* Based on 224x0 divider */
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 0 12px;
+  flex: 1;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+
+.projects-section h3 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #787486;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+}
+
+.add-project-btn {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.add-project-btn:hover {
+  opacity: 0.7;
+}
+
+.add-project-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px; /* For height 39px */
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+  margin-bottom: 2px;
+}
+
+.project-item.active {
+  background: rgba(80, 48, 229, 0.08); /* Light purple background */
+}
+
+.project-item:hover:not(.active) {
+  background: rgba(80, 48, 229, 0.04);
+}
+
+.project-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.project-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.project-name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #787486;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-item.active .project-name {
+  font-weight: 600;
+  color: #0D062D;
+}
+
+.project-delete-btn {
+  background: none;
+  border: none;
+  color: #D1D5DB;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.15s;
+}
+
+.project-item:hover .project-delete-btn {
+  opacity: 1;
+}
+
+.project-delete-btn:hover {
+  color: #EF4444;
+  background: #FEF2F2;
+}
+
+.project-delete-btn.confirm {
+  opacity: 1;
+  color: #FFFFFF;
+  background: #EF4444;
+}
+
+.project-delete-btn.confirm:hover {
+  background: #DC2626;
+}
+
+/* Thoughts Box overlay layout */
+.thoughts-box-container {
+  padding: 0 20px 30px;
+  margin-top: 40px;
+}
+
+.thoughts-box {
+  background: #F5F5F5;
+  border-radius: 16px;
+  padding: 36px 16px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.thoughts-icon-wrapper {
+  position: absolute;
+  top: -33px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 66px;
+  background: #F5F5F5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.thoughts-icon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: rgba(252, 214, 74, 0.7);
+  border-radius: 50%;
+  filter: blur(12px);
+  z-index: 1;
+}
+
+.thoughts-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.thoughts-box h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.thoughts-box p {
+  font-size: 12px;
+  color: #787486;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.thoughts-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.thoughts-btn:hover {
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+}
